@@ -49,12 +49,12 @@ namespace GameMatchmaking
 
                         D.p(result);
                         
-                        JsonObject jsonResult = JsonObject.Parse(result);
-                        JsonArray jsonMatchingPlayers = jsonResult["data"].GetArray();
-                        foreach (JsonValue o in jsonMatchingPlayers)
-                        {
-                            TeamList.Items.Add(o.GetString());
-                        }
+                        //JsonObject jsonResult = JsonObject.Parse(result);
+                       // JsonArray jsonMatchingPlayers = jsonResult["data"].GetArray();
+                       // foreach (JsonValue o in jsonMatchingPlayers)
+                       // {
+                       //     TeamList.Items.Add(o.GetString());
+                       // }
                     }
                 }
                 catch (Exception ex)

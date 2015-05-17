@@ -7,11 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Margin="10,0,0,0">
+    <Grid>
 
-        <TextBlock x:Name="header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Account" VerticalAlignment="Top" Height="33" Width="340"/>
+        <TextBlock x:Name="header" HorizontalAlignment="Center" Margin="80,65,63,0" TextWrapping="Wrap" Text="Create Account" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="32"/>
 
-        <Grid HorizontalAlignment="Left" Height="405" Margin="0,43,0,0" VerticalAlignment="Top" Width="412">
+        <Grid HorizontalAlignment="Center" Height="405" Margin="0,43,0,0" VerticalAlignment="Center" Width="484">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="20*"/>
@@ -34,7 +34,7 @@
             <TextBlock x:Name="txtHeaderPassword" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
             <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Width="240" Margin="0,9.333"/>
 
-            <TextBox x:Name="txtfName" TextWrapping="NoWrap"  Height="33" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+            <TextBox x:Name="txtfName" TextWrapping="NoWrap"  Height="33" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Margin="0,0,80,0"/>
             <TextBlock x:Name="txtHeaderfName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"/>
 
             <TextBlock x:Name="txtHeaderlName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"/>
@@ -56,7 +56,14 @@
             <TextBox x:Name="txtCountry" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,9.333,-1,9" Width="241"/>
 
         </Grid>
-        <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Center" Margin="0,500,0,0" VerticalAlignment="Center" Click="onCreateButtonClick"/>
-        <TextBlock x:Name="messageLabel" HorizontalAlignment="Left" Margin="10,488,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" Height="61" Foreground="#FFD60000" FontSize="26.667"/>
+
+        <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Center" Margin="35,0,10,11" VerticalAlignment="Bottom" Width="Auto" Click="onCreateButtonClick"/>
+        </Grid>
+
     </Grid>
 </Page>
