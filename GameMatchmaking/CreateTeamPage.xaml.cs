@@ -14,6 +14,8 @@ namespace GameMatchmaking
 {
     public sealed partial class CreateTeamPage : Page
     {
+        private String resourceName = "WeLikeSports";
+
         public CreateTeamPage()
         {
             this.InitializeComponent();
@@ -67,6 +69,7 @@ namespace GameMatchmaking
 
         async private void onCreateClick(object sender, RoutedEventArgs e)
         {
+
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Config.URI);
@@ -82,7 +85,7 @@ namespace GameMatchmaking
                 jsonObject["sport"] = JsonValue.CreateStringValue((string)sportTypeBox.SelectedValue);
                 jsonObject["usernames"] = playerNames;
 
-                byte[] byteArray = Encoding.UTF8.GetBytes(jsonObject.ToString()); 
+                byte[] byteArray = Encoding.UTF8.GetBytes(jsonObject.ToString());
                 ByteArrayContent content = new ByteArrayContent(byteArray);
 
                 try
@@ -104,6 +107,15 @@ namespace GameMatchmaking
                 }
 
             }
+            
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
+        }
+
+        private void onCancelClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
         }
 
         private void OnItemClick(object sender, ItemClickEventArgs e)
