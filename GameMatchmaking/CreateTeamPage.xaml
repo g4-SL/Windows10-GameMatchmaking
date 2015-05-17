@@ -33,7 +33,6 @@
             <ListView x:Name="teammateSearchListBox" HorizontalAlignment="Center" Height="157" Margin="10,0,178,10" VerticalAlignment="Bottom" Width="152" Grid.Row="3" Grid.ColumnSpan="2" Foreground="Black" Background="#FFE4E4E4" IsItemClickEnabled="True" ItemClick="OnItemClick"/>
             <TextBlock x:Name="currentTeammatesLabel_Copy" HorizontalAlignment="Right" Margin="0,10,178,0" TextWrapping="Wrap" Text="Search Results" VerticalAlignment="Top" Grid.Row="3" Height="20" Width="126" Grid.ColumnSpan="2"/>
         </Grid>
-        <Button x:Name="button" Content="Create" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="96" Click="onCreateClick"/>
         <TextBlock x:Name="statusLabel" HorizontalAlignment="Center" Margin="0,0,0,5" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Height="20" Width="264" Foreground="#FF971B1B"/>
 
         <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="340">
@@ -41,8 +40,8 @@
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" Grid.Row="0" Grid.Column="0" Margin="0,10,10,11" Click="onCreateClick"/>
             <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Center" Width="96" Grid.Row="0" Grid.Column="1" Margin="10,10,0,11" Click="onCancelClick"/>
+            <Button x:Name="button" Content="Create" HorizontalAlignment="Center" Margin="64,0,10,11" VerticalAlignment="Bottom" Width="96" Click="onCreateClick"/>
         </Grid>
 
     </Grid>

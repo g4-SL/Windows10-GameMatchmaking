@@ -24,7 +24,8 @@ namespace GameMatchmaking
                 sportTypeBox.Items.Add(s.Name);
             }
             sportTypeBox.SelectedItem = "Basketball";
-            teammateListBox.Items.Add(User.Name);
+            if (!String.IsNullOrEmpty(User.Name))
+                teammateListBox.Items.Add(User.Name);
         }
 
         private void PopulateSportType()
@@ -95,6 +96,8 @@ namespace GameMatchmaking
                     {
                         string result = await response.Content.ReadAsStringAsync();
                         D.p(result);
+                        Frame rootFrame = Window.Current.Content as Frame;
+                        rootFrame.Navigate(typeof(HomePage));
                     }
                     else
                     {
@@ -108,8 +111,6 @@ namespace GameMatchmaking
 
             }
             
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(HomePage));
         }
 
         private void onCancelClick(object sender, RoutedEventArgs e)
