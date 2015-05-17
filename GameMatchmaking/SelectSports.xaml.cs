@@ -24,10 +24,20 @@ namespace GameMatchmaking
         }
 
 
+
         private void startGameClick(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(ResultPage));
+        }
+
+       
+
+        private void onCancelClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
+
         }
     }
 }

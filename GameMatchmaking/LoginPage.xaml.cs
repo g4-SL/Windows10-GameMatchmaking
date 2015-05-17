@@ -20,6 +20,9 @@ namespace GameMatchmaking
 {
     public sealed partial class LoginPage : Page
     {
+        private String resourceName = "WeLikeSports";
+        private CookieCollection cookies;
+
         public LoginPage()
         {
             this.InitializeComponent();
@@ -49,6 +52,10 @@ namespace GameMatchmaking
             {
                 if (String.Equals("success", isLogin))
                 {
+                    var vault = new Windows.Security.Credentials.PasswordVault();
+                    vault.Add(new Windows.Security.Credentials.PasswordCredential(resourceName, txtEmail.Text, txtPassword.Password));
+                    var loginCredential = GetCredentialFromLocker();
+
                     Frame rootFrame = Window.Current.Content as Frame;
                     rootFrame.Navigate(typeof(HomePage));
                     return;
@@ -88,6 +95,7 @@ namespace GameMatchmaking
         void GetResponceStreamCallback(IAsyncResult callbackResult)
         {
             HttpWebRequest request = (HttpWebRequest)callbackResult.AsyncState;
+            request.CookieContainer = new CookieContainer();
             try
             {
                 HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(callbackResult);
@@ -99,7 +107,6 @@ namespace GameMatchmaking
                     isLogin = test.GetNamedString("status");
                     D.p(isLogin);
                 }
-
             }
             catch (Exception e)
             {
@@ -108,6 +115,25 @@ namespace GameMatchmaking
                 D.p(e.StackTrace.ToString());
             }
 
+        }
+
+        private Windows.Security.Credentials.PasswordCredential GetCredentialFromLocker()
+        {
+            String defaultUserName;
+
+            Windows.Security.Credentials.PasswordCredential credential = null;
+
+            var vault = new Windows.Security.Credentials.PasswordVault();
+            var credentialList = vault.FindAllByResource(resourceName);
+            if (credentialList.Count > 0)
+            {
+                if (credentialList.Count == 1)
+                {
+                    credential = credentialList[0];
+                }
+            }
+
+            return credential;
         }
     }
 }

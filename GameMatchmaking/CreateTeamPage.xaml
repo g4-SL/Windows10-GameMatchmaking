@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="-1,77,0,0" TextWrapping="Wrap" Text="Create A Team" VerticalAlignment="Top" Height="42" Width="205" FontSize="32"/>
 
-        <Grid HorizontalAlignment="Center" Height="400" Margin="0,20,0,0" VerticalAlignment="Center" Width="340">
+        <Grid HorizontalAlignment="Center" Height="423" Margin="10,130,10,87" VerticalAlignment="Center" Width="340">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="14*"/>
                 <ColumnDefinition Width="71*"/>
@@ -26,13 +26,23 @@
             <TextBlock x:Name="SportTypeLabel" HorizontalAlignment="Left" Margin="20,16,0,15" TextWrapping="Wrap" Text="Sport Type" VerticalAlignment="Center" Width="107" Height="20" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="teamNameLabel" HorizontalAlignment="Left" Margin="20,22,0,22" TextWrapping="Wrap" Text="Team Name" VerticalAlignment="Center" Width="107" Grid.Row="1" Height="20" Grid.ColumnSpan="2"/>
             <TextBox x:Name="teammateSearchBox" HorizontalAlignment="Left" Margin="20,0,0,10" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="178" Grid.Row="2" Height="32" Grid.ColumnSpan="2"/>
-            <Button x:Name="addTeammateButton" Content="Add Friend" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="101" Grid.Row="2" Height="32" Click="onAddTeammateClick" Grid.Column="1"/>
+            <Button x:Name="addTeammateButton" Content="Search Player" HorizontalAlignment="Right" Margin="0,0,20,10" VerticalAlignment="Bottom" Width="117" Grid.Row="2" Height="32" Click="onAddTeammateClick" Grid.Column="1"/>
             <TextBlock x:Name="teammateSearchLabel" HorizontalAlignment="Left" Margin="20,10,0,0" TextWrapping="Wrap" Text="Search For Teammates" VerticalAlignment="Top" Grid.Row="2" Height="20" Width="178" Grid.ColumnSpan="2"/>
-            <ListView x:Name="teammateListBox" HorizontalAlignment="Center" Height="157" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="320" Grid.Row="3" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="currentTeammatesLabel" HorizontalAlignment="Center" Margin="40,10,111,0" TextWrapping="Wrap" Text="Current Teammates" VerticalAlignment="Top" Grid.Row="3" Height="20" Width="133" Grid.Column="1"/>
-
+            <ListView x:Name="teammateListBox" HorizontalAlignment="Center" Height="157" Margin="122,0,10,10" VerticalAlignment="Bottom" Width="152" Grid.Row="3" Grid.Column="1" Background="#FFE4E4E4"/>
+            <TextBlock x:Name="currentTeammatesLabel" HorizontalAlignment="Right" Margin="0,9.667,10,0" TextWrapping="Wrap" Text="Selected Teammates" VerticalAlignment="Top" Grid.Row="3" Height="20" Width="142" Grid.Column="1"/>
+            <ListView x:Name="teammateSearchListBox" HorizontalAlignment="Center" Height="157" Margin="10,0,178,10" VerticalAlignment="Bottom" Width="152" Grid.Row="3" Grid.ColumnSpan="2" Foreground="Black" Background="#FFE4E4E4" IsItemClickEnabled="True" ItemClick="OnItemClick"/>
+            <TextBlock x:Name="currentTeammatesLabel_Copy" HorizontalAlignment="Right" Margin="0,10,178,0" TextWrapping="Wrap" Text="Search Results" VerticalAlignment="Top" Grid.Row="3" Height="20" Width="126" Grid.ColumnSpan="2"/>
         </Grid>
-        <Button x:Name="button" Content="Create" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="96"/>
+        <TextBlock x:Name="statusLabel" HorizontalAlignment="Center" Margin="0,0,0,5" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Height="20" Width="264" Foreground="#FF971B1B"/>
+
+        <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="340">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Center" Width="96" Grid.Row="0" Grid.Column="1" Margin="10,10,0,11" Click="onCancelClick"/>
+            <Button x:Name="button" Content="Create" HorizontalAlignment="Center" Margin="64,0,10,11" VerticalAlignment="Bottom" Width="96" Click="onCreateClick"/>
+        </Grid>
 
     </Grid>
 </Page>
