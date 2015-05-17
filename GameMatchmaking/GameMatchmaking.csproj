@@ -110,8 +110,13 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="SelectSports.xaml.cs">
       <DependentUpon>SelectSports.xaml</DependentUpon>
+=======
+    <Compile Include="TeamStatsPage.xaml.cs">
+      <DependentUpon>TeamStatsPage.xaml</DependentUpon>
+>>>>>>> 667986fc1b8d0c698d7162551389ad41cf383290
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -155,7 +160,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
     <Page Include="SelectSports.xaml">
+=======
+    <Page Include="TeamStatsPage.xaml">
+>>>>>>> 667986fc1b8d0c698d7162551389ad41cf383290
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
