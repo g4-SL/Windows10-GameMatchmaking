@@ -19,27 +19,11 @@ namespace GameMatchmaking
     /// </summary>
     public sealed partial class TeamStatsPage : Page
     {
-        private String txtNumWinCode = "";
-        private String txtNumLossCode = "";
-        private String txtRankCityCode = "";
-        private String txtRankCountryCode = "";
-        private String txtPointsRatioCode = "";
-        private String txtPlayersCode = "";
-        private String txtSportTypeCode = "";
-        private String txtNumTiesCode = "";
 
         public TeamStatsPage()
         {
             this.InitializeComponent();
             getTeamInfo();
-            txtNumWin.Text = txtNumWinCode;
-            txtNumLoss.Text = txtNumLossCode;
-          //  txtRankCity.Text = txtRankCityCode;
-          //  txtRankCountry.Text = txtRankCountryCode;
-            txtPointsRatio.Text = txtPointsRatioCode;
-            txtPlayers.Text = txtPlayersCode;
-            txtSportType.Text = txtSportTypeCode;
-            txtNumTies.Text = txtNumTiesCode;
         }
 
         async private void getTeamInfo()
@@ -50,7 +34,7 @@ namespace GameMatchmaking
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/team/team/");
+                    HttpResponseMessage response = await client.GetAsync("api/team/team/team123");
                     if (response.IsSuccessStatusCode)
                     {
                         string result = await response.Content.ReadAsStringAsync();
@@ -58,15 +42,22 @@ namespace GameMatchmaking
                         D.p(result);
 
                         JsonObject res = JsonObject.Parse(result);
-                        txtNumWinCode = res.GetNamedString("wins");
-                        txtNumLossCode = res.GetNamedString("losses");
-                        //txtRankCityCode = res.GetNamedString("status");
-                       // txtRankCountryCode = res.GetNamedString("status");
-                        txtPointsRatioCode = res.GetNamedString("points_ratio");
-                        txtPlayersCode = res.GetNamedString("usernames");
-                        txtSportTypeCode = res.GetNamedString("sport");
-                        txtNumTiesCode = res.GetNamedString("ties");
+                        JsonObject dataArray = res.GetNamedObject("data");
+
+                        txtName.Text = dataArray.GetNamedString("name") + " Statistics";
+                        txtNumWin.Text = ((int)dataArray.GetNamedNumber("wins")).ToString();
+                        txtNumLoss.Text = ((int)dataArray.GetNamedNumber("losses")).ToString();
+                        txtGlobalRank.Text = dataArray.GetNamedString("ranking");
+                        txtPointsRatio.Text = dataArray.GetNamedNumber("points_ratio").ToString();
+                        txtSportType.Text = dataArray.GetNamedString("sport");
+                        txtNumTies.Text = ((int)dataArray.GetNamedNumber("ties")).ToString();
+
+                        JsonArray names = dataArray.GetNamedArray("usernames");
+                        foreach (JsonValue name in names)
+                            txtPlayers.Items.Add(name.ToString());
                     }
+                    else
+                        D.p("not successful");
                 }
                 catch (Exception ex)
                 {

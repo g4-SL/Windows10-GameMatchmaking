@@ -8,8 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="72,59,73,0" TextWrapping="Wrap" Text="Team Statistics" VerticalAlignment="Top" Height="42" Width="215" FontSize="32"/>
-        <Grid HorizontalAlignment="Left" Height="333" Margin="53,112,0,0" VerticalAlignment="Top" Width="262">
+        <TextBlock x:Name="txtName" HorizontalAlignment="Center" Margin="72,59,73,0" TextWrapping="Wrap" Text="Team Statistics" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="32"/>
+        <Grid HorizontalAlignment="Center" Height="423" VerticalAlignment="Top" Width="262" Margin="49,122,49,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20*"/>
                 <ColumnDefinition Width="10*"/>
@@ -21,20 +21,16 @@
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="10*"/>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="10*"/>
+                <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
             <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Number of wins" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
             <TextBlock x:Name="txtNumWin" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="0"/>
 
-            <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Number of loss" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+            <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Number of losses" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
             <TextBlock x:Name="txtNumLoss" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="1"/>
 
-            <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rank in city" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"/>
-            <TextBlock x:Name="txtRankCity" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="2"/>
-
-            <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rank in country" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"/>
-            <TextBlock x:Name="txtRankCountry" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="3"/>
+            <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Global rank" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"/>
+            <TextBlock x:Name="txtGlobalRank" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="2"/>
 
             <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Number of ties" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
             <TextBlock x:Name="txtNumTies" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="4"/>
@@ -42,11 +38,11 @@
             <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sports" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"/>
             <TextBlock x:Name="txtSportType" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="5"/>
 
-            <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Players" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"/>
-            <TextBlock x:Name="txtPlayers" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="6"/>
+            <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Players" VerticalAlignment="Top" Grid.Column="0" Grid.Row="6" Margin="0,10.333,0,0"/>
+            <ListView x:Name="txtPlayers" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="6"/>
 
-            <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Points ratio" VerticalAlignment="Center" Grid.Column="0" Grid.Row="7"/>
-            <TextBlock x:Name="txtPointsRatio" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="7"/>
+            <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Points ratio" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"/>
+            <TextBlock x:Name="txtPointsRatio" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="3"/>
         </Grid>
         <Button x:Name="cancelBtn" Content="Back" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="96" Grid.Row="0" Click="onCancelClick" Margin="135,0,129,10"/>
 

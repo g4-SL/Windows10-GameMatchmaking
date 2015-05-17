@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Select Team" VerticalAlignment="Top" Height="42" Width="205" FontSize="32" Margin="90,65,65,0"/>
-        <Grid HorizontalAlignment="Center" Height="144" Margin="10,130,10,366" VerticalAlignment="Center" Width="340">
+        <Grid HorizontalAlignment="Center" Height="195" Margin="10,140,10,305" VerticalAlignment="Center" Width="340">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="30*"/>
@@ -37,7 +37,7 @@
             <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="54" Margin="74,58,0,0" TextWrapping="Wrap" Text="Select Sports Type" VerticalAlignment="Top" Width="232" TextAlignment="Center"/>
 
         </Grid>
-        
+
         <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="340">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
