@@ -37,6 +37,7 @@
             <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="54" Margin="74,58,0,0" TextWrapping="Wrap" Text="Select Sports Type" VerticalAlignment="Top" Width="232" TextAlignment="Center"/>
 
         </Grid>
+        
         <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="340">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>

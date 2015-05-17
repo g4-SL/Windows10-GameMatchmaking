@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,7 +28,41 @@ namespace GameMatchmaking
         public HomePage()
         {
             this.InitializeComponent();
+            PopulateTeams();
         }
+
+        async private void PopulateTeams()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Config.URI);
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("api/team/team/" + User.Name);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+
+                        D.p(result);
+
+                        /*
+                        JsonObject jsonResult = JsonObject.Parse(result);
+                        JsonArray jsonMatchingPlayers = jsonResult["data"].GetArray();
+                        foreach (JsonValue o in jsonMatchingPlayers)
+                        {
+                            teammateSearchListBox.Items.Add(o.GetString());
+                        }
+                        */
+                    }
+                }
+                catch (Exception ex)
+                {
+                    D.p("HomePage: " + ex.Message);
+                }
+            }
+        }
+
 
         private void createNewTeam(object sender, RoutedEventArgs e)
         {
