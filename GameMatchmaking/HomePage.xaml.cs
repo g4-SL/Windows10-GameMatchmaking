@@ -93,6 +93,12 @@ namespace GameMatchmaking
             rootFrame.Navigate(typeof(CreateTeamPage));
         }
 
+        private void OnEnterScoresClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(EnterScoresPage));
+        }
+
         private Windows.Security.Credentials.PasswordCredential GetCredentialFromLocker()
         {
             String defaultUserName;

@@ -98,7 +98,21 @@ namespace GameMatchmaking
                         JsonObject data = jsonResult["data"].GetObject();
                         JsonArray array = data["teams"].GetArray();
 
-                        invitationsList.Items.Add(array[0].GetString() + " VS " + array[1].GetString() + " @ " + data["location"].GetString() + ", " + data["date"].GetString());
+                        JsonArray acceptedPlayers = data["accepted_players"].GetArray();
+
+                        bool isAccepted = false;
+                        foreach(JsonValue val in acceptedPlayers)
+                        {
+                            if (val.GetString() == User.Name)
+                            {
+                                isAccepted = true;
+                                break;
+                            }
+                        }
+
+                        string acceptedString = isAccepted ? "ACCEPTED" : "";
+
+                        invitationsList.Items.Add(game_id + ". " + array[0].GetString() + " VS " + array[1].GetString() + " @ " + data["location"].GetString() + ", " + data["date"].GetString() + " " + acceptedString);
                         D.p(result);
                     }
                 }
@@ -113,6 +127,57 @@ namespace GameMatchmaking
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(HomePage));
+        }
+
+        private void OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            string item = e.ClickedItem.ToString();
+
+            char[] split = new char[1];
+            split[0] = '.';
+            string[] splittedString = item.Split(split);
+
+            AcceptInvitation(int.Parse(splittedString[0]));
+        }
+
+        async private void AcceptInvitation(int game_id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Config.URI);
+
+                JsonObject jsonObject = new JsonObject();
+                jsonObject["decision"] = JsonValue.CreateStringValue("Accept");
+                jsonObject["id"] = JsonValue.CreateNumberValue(game_id);
+
+                byte[] byteArray = Encoding.UTF8.GetBytes(jsonObject.ToString());
+                ByteArrayContent content = new ByteArrayContent(byteArray);
+
+                try
+                {
+                    HttpResponseMessage response = await client.PostAsync("api/game/inviterespond/", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+
+                        JsonObject jsonResult = JsonObject.Parse(result);
+                        
+                        statusLabel.Text = jsonResult["data"].GetString();
+                        invitationsList.Items.Clear();
+                        GetGameJson(game_id);
+                    }
+                    else
+                    {
+                        statusLabel.Text = await response.Content.ReadAsStringAsync();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    statusLabel.Text = "No Internet Connection";
+                }
+
+            }
+
         }
     }
 }

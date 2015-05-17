@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" NavigationCacheMode="Enabled">
 
-    <Grid RequestedTheme="Light">
+    <Grid RequestedTheme="Light" Opacity="0.8">
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///image/wallpaper3.png" Stretch="Uniform"/>
         </Grid.Background>
@@ -19,9 +19,9 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="20,43,135,0" TextWrapping="Wrap" Text="Log-In" VerticalAlignment="Top" Height="42" Width="205" FontSize="32" FontFamily="Segoe UI Black" FontWeight="Bold" SelectionChanged="textBlock_SelectionChanged_1" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" Grid.Row="1"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,43,0,0" TextWrapping="Wrap" Text="Log-In" VerticalAlignment="Top" Height="42" Width="101" FontSize="32" FontFamily="Segoe UI Black" FontWeight="Bold" SelectionChanged="textBlock_SelectionChanged_1" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" Grid.Row="1"/>
 
-        <Grid HorizontalAlignment="Center" Height="144" Margin="1,90,19,404" VerticalAlignment="Center" Width="340" Grid.Row="1">
+        <Grid HorizontalAlignment="Center" Height="144" Margin="11,145,9,349" VerticalAlignment="Center" Width="340" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="30*"/>
@@ -37,7 +37,7 @@
             <TextBlock x:Name="passwordLabel_Copy" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" SelectionChanged="textBlock_SelectionChanged" Height="20" Width="39" Grid.Row="0" Grid.Column="0" Margin="0,32,23.333,20" FontFamily="Segoe UI Black" FontWeight="Bold"/>
 
         </Grid>
-        <Button x:Name="log_in" Click="onLoginClick" Content="Log In" HorizontalAlignment="Center" Height="36" Margin="108,282,157,320" Grid.Row="1" VerticalAlignment="Center" Width="95" FontWeight="Bold" FontFamily="Segoe UI Black">
+        <Button x:Name="log_in" Click="onLoginClick" Content="Log In" HorizontalAlignment="Center" Height="36" Margin="81,355,184,247" Grid.Row="1" VerticalAlignment="Center" Width="95" FontWeight="Bold" FontFamily="Segoe UI Black">
 
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -46,7 +46,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="sign_up" Click="onSignUpClick" Content="Sign Up" HorizontalAlignment="Center" Height="38" Margin="227,282,41,318" Grid.Row="1" VerticalAlignment="Center" Width="92" FontWeight="Bold" FontFamily="Segoe UI Black">
+        <Button x:Name="sign_up" Click="onSignUpClick" Content="Sign Up" HorizontalAlignment="Center" Height="38" Margin="200,355,68,245" Grid.Row="1" VerticalAlignment="Center" Width="92" FontWeight="Bold" FontFamily="Segoe UI Black">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
