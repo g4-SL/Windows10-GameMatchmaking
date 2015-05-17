@@ -25,6 +25,8 @@ namespace GameMatchmaking
     /// </summary>
     public sealed partial class HomePage : Page
     {
+        private String resourceName = "WeLikeSports";
+
         public HomePage()
         {
             this.InitializeComponent();
@@ -36,6 +38,8 @@ namespace GameMatchmaking
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Config.URI);
+                var loginCredential = GetCredentialFromLocker();
+
                 try
                 {
                     HttpResponseMessage response = await client.GetAsync("api/player/me/");
@@ -87,6 +91,25 @@ namespace GameMatchmaking
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(CreateTeamPage));
+        }
+
+        private Windows.Security.Credentials.PasswordCredential GetCredentialFromLocker()
+        {
+            String defaultUserName;
+
+            Windows.Security.Credentials.PasswordCredential credential = null;
+
+            var vault = new Windows.Security.Credentials.PasswordVault();
+            var credentialList = vault.FindAllByResource(resourceName);
+            if (credentialList.Count > 0)
+            {
+                if (credentialList.Count == 1)
+                {
+                    credential = credentialList[0];
+                }
+            }
+
+            return credential;
         }
 
         private void OnItemClick(object sender, ItemClickEventArgs e)

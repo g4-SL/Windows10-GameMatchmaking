@@ -56,8 +56,8 @@
             <TextBox x:Name="txtCountry" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,9.333,-1,9" Width="241"/>
 
         </Grid>
+
         <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Center" Margin="603,594,545,94" VerticalAlignment="Center" Click="onCreateButtonClick"/>
-        <TextBlock x:Name="messageLabel" HorizontalAlignment="Left" Margin="10,488,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" Height="61" Foreground="#FFD60000" FontSize="26.667"/>
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Center" Margin="465,594,754,94" VerticalAlignment="Center" Click="onBackButtonClick"/>
     </Grid>
 </Page>
