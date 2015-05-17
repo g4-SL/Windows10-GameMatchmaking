@@ -108,6 +108,12 @@ namespace GameMatchmaking
                 }
             }
         }
+
+        private void OnBackButtonClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
+        }
     }
 }
 

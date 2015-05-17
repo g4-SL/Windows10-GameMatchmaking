@@ -28,39 +28,39 @@ namespace GameMatchmaking
         public HomePage()
         {
             this.InitializeComponent();
-            PopulateTeams();
+            PopulateMyTeams();
         }
 
-        async private void PopulateTeams()
+        async private void PopulateMyTeams()
         {
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Config.URI);
-
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/team/team/" + User.Name);
+                    HttpResponseMessage response = await client.GetAsync("api/player/me/");
                     if (response.IsSuccessStatusCode)
                     {
                         string result = await response.Content.ReadAsStringAsync();
 
                         D.p(result);
 
-                        /*
                         JsonObject jsonResult = JsonObject.Parse(result);
-                        JsonArray jsonMatchingPlayers = jsonResult["data"].GetArray();
-                        foreach (JsonValue o in jsonMatchingPlayers)
+                        JsonObject jsonData = jsonResult["data"].GetObject();
+                        JsonArray jsonTeams = jsonData["teams"].GetArray();
+
+                        foreach (JsonValue val in jsonTeams)
                         {
-                            teammateSearchListBox.Items.Add(o.GetString());
+                            teamList.Items.Add(val.GetString());
                         }
-                        */
                     }
                 }
                 catch (Exception ex)
                 {
-                    D.p("HomePage: " + ex.Message);
+                    // statusLabel.Text = "No Internet Connection";
                 }
             }
+
         }
 
 
@@ -89,5 +89,12 @@ namespace GameMatchmaking
             rootFrame.Navigate(typeof(CreateTeamPage));
         }
 
+        private void OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            //teamList.SelectedItem;
+
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(CreateTeamPage));
+        }
     }
 }

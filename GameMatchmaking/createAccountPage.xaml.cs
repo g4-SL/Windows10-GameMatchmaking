@@ -44,8 +44,16 @@ namespace GameMatchmaking
             request.ContentType = "application/json; charset=utf-8";
             test = GetUserInfoJson();
             request.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), request);
-
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
         }
+
+        public void onBackButtonClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(LoginPage));
+        }
+
         private JsonObject test;
 
         private JsonObject GetUserInfoJson()
@@ -87,7 +95,7 @@ namespace GameMatchmaking
             request.BeginGetResponse(new AsyncCallback(GetResponceStreamCallback), request);
         }
 
-        async void GetResponceStreamCallback(IAsyncResult callbackResult)
+        void GetResponceStreamCallback(IAsyncResult callbackResult)
         {
             HttpWebRequest request = (HttpWebRequest)callbackResult.AsyncState;
             try
@@ -98,7 +106,6 @@ namespace GameMatchmaking
                     string result = httpWebStreamReader.ReadToEnd();
                     D.p(result);
                 }
-
             }
             catch (Exception e)
             {

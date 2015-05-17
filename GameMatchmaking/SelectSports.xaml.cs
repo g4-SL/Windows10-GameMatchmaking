@@ -52,7 +52,6 @@ namespace GameMatchmaking
                         }
 
                         selectteam.SelectedIndex = 0;
-
                     }
                 }
                 catch (Exception ex)
@@ -82,7 +81,11 @@ namespace GameMatchmaking
                     if (response.IsSuccessStatusCode)
                     {
                         string result = await response.Content.ReadAsStringAsync();
+                        JsonObject jsonResult = JsonObject.Parse(result);
+                        int game_id = (int)jsonResult["data"].GetObject()["game_id"].GetNumber();
                         D.p(result);
+                        Frame rootFrame = Window.Current.Content as Frame;
+                        rootFrame.Navigate(typeof(ResultPage), game_id);
                     }
                 }
                 catch (Exception ex)
@@ -91,8 +94,6 @@ namespace GameMatchmaking
                 }
             }
 
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(ResultPage), (int)1);
         }
 
         private void onCancelClick(object sender, RoutedEventArgs e)
