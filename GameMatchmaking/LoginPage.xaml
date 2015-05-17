@@ -19,7 +19,7 @@
         <Button Name ="Sign_up" Content="Sign Up" HorizontalAlignment="Center" Margin="144,104,144,39" Grid.Row="3" Height="32" Width="72" Click="onSignUpClick"/>
 
         <Button Name ="Log_in" Content ="Log In" HorizontalAlignment="Center" Margin="144,39,144,102" Height="34" Width="72" Grid.Row="3"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Right" Margin="0,43,20,1" Grid.Row="2" VerticalAlignment="Center" Width="175" Height="32"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Right" Margin="0,43,20,1" Grid.Row="2" VerticalAlignment="Center" Width="175" Height="32" IsPasswordRevealButtonEnabled="True"/>
         <TextBlock x:Name="passwordLabel" HorizontalAlignment="Left" Margin="20,49,0,7" Grid.Row="2" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" SelectionChanged="textBlock_SelectionChanged" Height="20" Width="62"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Right" Margin="0,0,20,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="175" Height="32" Grid.Row="1"/>
         <TextBlock x:Name="passwordLabel_Copy" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" SelectionChanged="textBlock_SelectionChanged" Height="20" Width="62" Grid.Row="1"/>
