@@ -35,7 +35,6 @@ namespace GameMatchmaking
 
         async private void getTeamInfo(String teamName)
         {
-            while(teamName.Length == 0)
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Config.URI);
