@@ -24,6 +24,7 @@ namespace GameMatchmaking
 
         public LoginPage()
         {
+
             this.InitializeComponent();
         }
 
@@ -144,6 +145,11 @@ namespace GameMatchmaking
             }
 
             return credential;
+        }
+
+        private void textBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

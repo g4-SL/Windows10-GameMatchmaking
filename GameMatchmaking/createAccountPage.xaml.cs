@@ -119,5 +119,10 @@ namespace GameMatchmaking
                 D.p(e.StackTrace.ToString());
             }
         }
+
+        private void messageLabel_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
