@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Net;
+using System.Text;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -31,23 +32,71 @@ namespace GameMatchmaking
 
         public void onCreateButtonClick(object sender, RoutedEventArgs e)
         {
-            string username = txtUsername.Text;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Config.URI + "api/player/player/");
+            D.p(request.ToString());
+            request.Method = "PUT";
+            request.ContentType = "application/json; charset=utf-8";
+            test = GetUserInfoJson();
+            request.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), request);
+
+        }
+        private JsonObject test;
+
+        private JsonObject GetUserInfoJson()
+        {
             JsonObject userInfo = new JsonObject();
             userInfo["username"] = JsonValue.CreateStringValue(txtUsername.Text);
             userInfo["first"] = JsonValue.CreateStringValue(txtfName.Text);
             userInfo["last"] = JsonValue.CreateStringValue(txtlName.Text);
             userInfo["password"] = JsonValue.CreateStringValue(txtPassword.Text);
-            userInfo["gender"] = JsonValue.CreateStringValue(this.gender.SelectedValue.ToString());
-            userInfo["birthday"] = JsonValue.CreateStringValue(birthdayPicker.Date.ToString("yyyy-mm-dd"));
+
+            string gender = (string)this.gender.SelectedValue == "Male" ? "M" : "F";
+
+            userInfo["gender"] = JsonValue.CreateStringValue(gender);
+            userInfo["birthday"] = JsonValue.CreateStringValue(birthdayPicker.Date.ToString("yyyy-MM-dd"));
             userInfo["city"] = JsonValue.CreateStringValue(txtCity.Text);
             userInfo["country"] = JsonValue.CreateStringValue(txtCountry.Text);
 
             D.p(userInfo.ToString());
+            
+            return userInfo;
+        }
 
-            WebRequest request = WebRequest.Create(Config.URI);
-            request.
-            Stream objStream;
-            objStream = request.BeginGetResponse()
+        private void GetRequestStreamCallback(IAsyncResult asynchronousResult)
+        {
+            HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+            // End the stream request operation
+
+            Stream postStream = request.EndGetRequestStream(asynchronousResult);
+
+            byte[] byteArray = Encoding.UTF8.GetBytes(test.ToString());
+
+            postStream.Write(byteArray, 0, byteArray.Length);
+
+            //Start the web request
+            request.BeginGetResponse(new AsyncCallback(GetResponceStreamCallback), request);
+        }
+
+        void GetResponceStreamCallback(IAsyncResult callbackResult)
+        {
+            HttpWebRequest request = (HttpWebRequest)callbackResult.AsyncState;
+            try
+            {
+                HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(callbackResult);
+                using (StreamReader httpWebStreamReader = new StreamReader(response.GetResponseStream()))
+                {
+                    string result = httpWebStreamReader.ReadToEnd();
+                    D.p(result);
+                }
+
+            }
+            catch (Exception e)
+            {
+                D.p("Error attempting to create account:");
+                D.p(e.Message);
+                D.p(e.StackTrace.ToString());
+            }
+
         }
     }
 }

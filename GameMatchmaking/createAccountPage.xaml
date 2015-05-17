@@ -41,10 +41,10 @@
             <TextBox x:Name="txtlName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="24" Width="241" Grid.Column="1" Grid.Row="3"/>
 
             <TextBlock x:Name="txtHeaderBday" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Birthday" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
-            <DatePicker HorizontalAlignment="Left" VerticalAlignment="Center" Height="34" Width="241" Grid.Column="1" Grid.Row="4"/>
+            <DatePicker x:Name="birthdayPicker"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="34" Width="241" Grid.Column="1" Grid.Row="4"/>
 
             <TextBlock x:Name="txtHeaderGender" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"/>
-            <ComboBox x:Name="gender" HorizontalAlignment="Left" Height="37" VerticalAlignment="Center" Width="241" Grid.Column="1" Grid.Row="5" SelectionChanged="gender_SelectionChanged">
+            <ComboBox x:Name="gender" HorizontalAlignment="Left" Height="37" VerticalAlignment="Center" Width="241" Grid.Column="1" Grid.Row="5" SelectedIndex="0">
                 <x:String>Male</x:String>
                 <x:String>Female</x:String>
             </ComboBox>
@@ -56,11 +56,6 @@
             <TextBox x:Name="txtCountry" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,9.333,-1,9" Width="241"/>
 
         </Grid>
-<<<<<<< HEAD
-        <Button x:Name="account_create" Content="Create An Account " HorizontalAlignment="Left" Height="53" Margin="110,503,0,0" VerticalAlignment="Top" Width="143"/>
-
-=======
-        
->>>>>>> 667986fc1b8d0c698d7162551389ad41cf383290
+        <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Center" Margin="0,500,0,0" VerticalAlignment="Center" Click="onCreateButtonClick"/>
     </Grid>
 </Page>
