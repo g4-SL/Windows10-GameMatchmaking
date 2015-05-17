@@ -47,7 +47,7 @@ namespace GameMatchmaking
                     {
                         string result = await response.Content.ReadAsStringAsync();
 
-                        D.p(result);
+                        D.p("populate" + result);
 
                         JsonObject jsonResult = JsonObject.Parse(result);
                         JsonObject jsonData = jsonResult["data"].GetObject();
@@ -114,14 +114,10 @@ namespace GameMatchmaking
 
         private void OnItemClick(object sender, ItemClickEventArgs e)
         {
-            String itemStr = "";
-           // D.p(teamList.SelectedItem.ToString());
-            var items = teamList.SelectedItems;
-            foreach(var item in items)
-            {
-                itemStr = item.ToString();
-            }
-
+            string itemStr = e.ClickedItem as string;
+            // D.p(teamList.SelectedItem.ToString());
+          
+            D.p(itemStr);
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(TeamStatsPage), itemStr);
         }

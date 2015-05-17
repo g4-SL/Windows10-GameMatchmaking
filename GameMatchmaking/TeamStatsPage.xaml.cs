@@ -21,22 +21,21 @@ namespace GameMatchmaking
     public sealed partial class TeamStatsPage : Page
     {
 
-        private String teamName = "";
+        override protected void OnNavigatedTo(NavigationEventArgs e)
+        {
+            string teamName = (string)e.Parameter;
+            D.p("TESTTDGEGDH " + teamName);
+            getTeamInfo(teamName);
+        }
 
         public TeamStatsPage()
         {
             this.InitializeComponent();
-            getTeamInfo();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        async private void getTeamInfo(String teamName)
         {
-            teamName = e.Parameter.ToString();
-            D.p("TESTTDGEGDH " + teamName);
-        }
-
-        async private void getTeamInfo()
-        {
+            while(teamName.Length == 0)
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Config.URI);
