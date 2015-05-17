@@ -16,18 +16,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GameMatchmaking
 {
-    public sealed partial class SelectSports : Page
+
+
+    public sealed partial class ResultPage : Page
     {
-        public SelectSports()
+        public ResultPage()
         {
             this.InitializeComponent();
-        }
-
-
-        private void startGameClick(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(ResultPage));
         }
     }
 }

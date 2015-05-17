@@ -93,7 +93,7 @@ namespace GameMatchmaking
                 // parameter
 
 
-                rootFrame.Navigate(typeof(LoginPage), e.Arguments);
+                rootFrame.Navigate(typeof(SelectSports), e.Arguments);
 
             }
             // Ensure the current window is active
