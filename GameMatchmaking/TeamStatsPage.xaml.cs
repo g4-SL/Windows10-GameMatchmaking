@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -20,13 +21,19 @@ namespace GameMatchmaking
     public sealed partial class TeamStatsPage : Page
     {
 
+        override protected void OnNavigatedTo(NavigationEventArgs e)
+        {
+            string teamName = (string)e.Parameter;
+            D.p("TESTTDGEGDH " + teamName);
+            getTeamInfo(teamName);
+        }
+
         public TeamStatsPage()
         {
             this.InitializeComponent();
-            getTeamInfo();
         }
 
-        async private void getTeamInfo()
+        async private void getTeamInfo(String teamName)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -34,12 +41,12 @@ namespace GameMatchmaking
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/team/team/team123");
+                    HttpResponseMessage response = await client.GetAsync("api/team/team/" + teamName);
                     if (response.IsSuccessStatusCode)
                     {
                         string result = await response.Content.ReadAsStringAsync();
 
-                        D.p(result);
+                        D.p("2913eu92" + result);
 
                         JsonObject res = JsonObject.Parse(result);
                         JsonObject dataArray = res.GetNamedObject("data");

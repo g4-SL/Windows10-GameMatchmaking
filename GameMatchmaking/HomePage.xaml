@@ -8,12 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Home" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="32" Margin="90,65,65,0"/>
-
-        <StackPanel HorizontalAlignment="Center" Height="209" VerticalAlignment="Top" Width="340" Margin="15,161,5,0">
-            <Button x:Name="createNew" Content="Create New Team" HorizontalAlignment="Center" VerticalAlignment="Center" Click="createNewTeamClick"/>
-            <Button x:Name="startGame" Content="Start Game" HorizontalAlignment="Center" VerticalAlignment="Center" Click="chooseSports" Margin="0,50,0,0"/>
-            <Button x:Name="invitation" Content="Pending Invitations" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,50,0,0" Click="invitationClick" />
+        <StackPanel HorizontalAlignment="Center" Height="209" VerticalAlignment="Center" Width="157" Margin="45,133,438,18">
+            <Button x:Name="createNew" Content="Create New Team" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="createNewTeamClick"/>
+            <Button x:Name="startGame" Content="Find A Match" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="chooseSports" Margin="0,50,0,0" Background="#33640F0F"/>
+            <Button x:Name="invitation" Content="Pending Games" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="0,50,0,0" Click="invitationClick" />
         </StackPanel>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Height="43" Margin="0,0,150,200" TextWrapping="Wrap" Text="CITY SPORTS LEAGUE" VerticalAlignment="Center" Width="351" FontSize="37.333" FontFamily="Segoe UI Light"/>
+        <ListView x:Name="teamList" HorizontalAlignment="Center" Height="209" Margin="100,100,0,0" VerticalAlignment="Center" Width="253" Background="#FFE4E4E4" IsItemClickEnabled="True" ItemClick="OnItemClick" SelectionMode="Single"/>
+
     </Grid>
 </Page>

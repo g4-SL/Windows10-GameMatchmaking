@@ -30,7 +30,7 @@ namespace GameMatchmaking
 
         private void textBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            errorLoginMsg.Text = "";
+            //errorLoginMsg.Text = "";
         }
 
         private void onSignUpClick(object sender, RoutedEventArgs e)
@@ -55,7 +55,6 @@ namespace GameMatchmaking
                     var vault = new Windows.Security.Credentials.PasswordVault();
                     vault.Add(new Windows.Security.Credentials.PasswordCredential(resourceName, txtEmail.Text, txtPassword.Password));
                     var loginCredential = GetCredentialFromLocker();
-                    D.p(loginCredential.UserName);
 
                     Frame rootFrame = Window.Current.Content as Frame;
                     rootFrame.Navigate(typeof(HomePage));
@@ -64,7 +63,7 @@ namespace GameMatchmaking
                 else if (isLogin.Length != 0 && String.Equals("failed", isLogin))
                 {
                     D.p("went in failure");
-                    errorLoginMsg.Text = "Wrong email or password";
+                    //errorLoginMsg.Text = "Wrong email or password";
                     return;
                 }
             }

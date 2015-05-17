@@ -30,10 +30,10 @@ namespace GameMatchmaking
         public HomePage()
         {
             this.InitializeComponent();
-            PopulateTeams();
+            PopulateMyTeams();
         }
 
-        async private void PopulateTeams()
+        async private void PopulateMyTeams()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -42,26 +42,29 @@ namespace GameMatchmaking
 
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/team/team/" + loginCredential.UserName);
+                    HttpResponseMessage response = await client.GetAsync("api/player/me/");
                     if (response.IsSuccessStatusCode)
                     {
                         string result = await response.Content.ReadAsStringAsync();
 
-                        D.p(result);
-                        
-                        //JsonObject jsonResult = JsonObject.Parse(result);
-                       // JsonArray jsonMatchingPlayers = jsonResult["data"].GetArray();
-                       // foreach (JsonValue o in jsonMatchingPlayers)
-                       // {
-                       //     TeamList.Items.Add(o.GetString());
-                       // }
+                        D.p("populate" + result);
+
+                        JsonObject jsonResult = JsonObject.Parse(result);
+                        JsonObject jsonData = jsonResult["data"].GetObject();
+                        JsonArray jsonTeams = jsonData["teams"].GetArray();
+
+                        foreach (JsonValue val in jsonTeams)
+                        {
+                            teamList.Items.Add(val.GetString());
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    D.p("HomePage: " + ex.Message);
+                    // statusLabel.Text = "No Internet Connection";
                 }
             }
+
         }
 
 
@@ -109,5 +112,14 @@ namespace GameMatchmaking
             return credential;
         }
 
+        private void OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            string itemStr = e.ClickedItem as string;
+            // D.p(teamList.SelectedItem.ToString());
+          
+            D.p(itemStr);
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(TeamStatsPage), itemStr);
+        }
     }
 }

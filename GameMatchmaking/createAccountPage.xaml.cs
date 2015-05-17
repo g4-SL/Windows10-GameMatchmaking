@@ -25,6 +25,7 @@ namespace GameMatchmaking
     /// </summary>
     public sealed partial class createAccountPage : Page
     {
+        private bool success = false;
         public createAccountPage()
         {
             this.InitializeComponent();
@@ -38,14 +39,25 @@ namespace GameMatchmaking
         
         public void onCreateButtonClick(object sender, RoutedEventArgs e)
         {
+            if (success)
+            {
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(HomePage));
+            }
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Config.URI + "api/player/player/");
             D.p(request.ToString());
             request.Method = "PUT";
             request.ContentType = "application/json; charset=utf-8";
             test = GetUserInfoJson();
             request.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), request);
-
         }
+
+        public void onBackButtonClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(LoginPage));
+        }
+
         private JsonObject test;
 
         private JsonObject GetUserInfoJson()
@@ -87,7 +99,7 @@ namespace GameMatchmaking
             request.BeginGetResponse(new AsyncCallback(GetResponceStreamCallback), request);
         }
 
-        async void GetResponceStreamCallback(IAsyncResult callbackResult)
+        void GetResponceStreamCallback(IAsyncResult callbackResult)
         {
             HttpWebRequest request = (HttpWebRequest)callbackResult.AsyncState;
             try
@@ -97,8 +109,8 @@ namespace GameMatchmaking
                 {
                     string result = httpWebStreamReader.ReadToEnd();
                     D.p(result);
+                    success = true;
                 }
-
             }
             catch (Exception e)
             {

@@ -42,7 +42,10 @@ namespace GameMatchmaking
         {
             this.InitializeComponent();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 174045dc8f93deb8bad31a354f6b41f6da551c82
             PopulateInvitations();
         }
 
@@ -95,14 +98,20 @@ namespace GameMatchmaking
                     {
                         string result = await response.Content.ReadAsStringAsync();
                         D.p("result: " + result);
+<<<<<<< HEAD
 >>>>>>> 9f28a1584bb3b6fece586b5b7a3a17e06c90309d
+=======
+>>>>>>> 174045dc8f93deb8bad31a354f6b41f6da551c82
 
                         JsonObject jsonResult = JsonObject.Parse(result);
                         JsonObject data = jsonResult["data"].GetObject();
                         JsonArray array = data["teams"].GetArray();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 174045dc8f93deb8bad31a354f6b41f6da551c82
                         invitationsList.Items.Add(array[0].GetString() + " VS " + array[1].GetString() + " @ " + data["location"].GetString() + ", " + data["date"].GetString());
                         D.p(result);
                     }
@@ -112,7 +121,16 @@ namespace GameMatchmaking
                     //statusLabel.Text = "No Internet Connection";
                 }
             }
+<<<<<<< HEAD
 >>>>>>> 9f28a1584bb3b6fece586b5b7a3a17e06c90309d
+=======
+        }
+
+        private void OnBackButtonClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
+>>>>>>> 174045dc8f93deb8bad31a354f6b41f6da551c82
         }
     }
 }
