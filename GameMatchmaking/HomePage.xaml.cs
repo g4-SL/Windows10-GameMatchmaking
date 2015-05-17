@@ -77,10 +77,17 @@ namespace GameMatchmaking
             rootFrame.Navigate(typeof(SelectSports));
         }
 
-    /*    private void invitationRequest(object sender, RoutedEventArgs e)
+        private void invitationClick(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(InvitationPage));
-        }*/
+        }
+
+        private void createNewTeamClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(CreateTeamPage));
+        }
+
     }
 }
