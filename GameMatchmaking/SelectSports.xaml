@@ -8,7 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-<<<<<<< HEAD
         <Grid.RowDefinitions>
             <RowDefinition Height="157*"/>
             <RowDefinition Height="265*"/>
@@ -30,39 +29,6 @@
 
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Center" Height="54" Margin="477,56,477,0" TextWrapping="Wrap" Text="Select Your Team" VerticalAlignment="Top" Width="326" TextAlignment="Center" FontSize="32"/>
         <Grid HorizontalAlignment="Center" Height="53" Margin="470,112.333,470,20" VerticalAlignment="Center" Width="340" Grid.Row="3">
-=======
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Select Team" VerticalAlignment="Top" Height="42" Width="205" FontSize="32" Margin="90,65,65,0"/>
-        <Grid HorizontalAlignment="Center" Height="195" Margin="10,140,10,305" VerticalAlignment="Center" Width="340">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="15*"/>
-                <ColumnDefinition Width="30*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="10*"/>
-            </Grid.RowDefinitions>
-            <TextBlock x:Name="textBlock10" Text ="Type" HorizontalAlignment="Center" Height="32" TextWrapping="Wrap" VerticalAlignment="Center" Width="69" TextAlignment="Center" Grid.Column="0" Grid.Row="0"/>
-            <ComboBox x:Name="selectsports" HorizontalAlignment="Center" VerticalAlignment="Center" Width="198" Height="32" Grid.Column="1" Grid.Row="0">
-                <x:String>Basketball</x:String>
-                <x:String>Soccern</x:String>
-            </ComboBox>
-            <TextBlock x:Name="textBlock1" Text ="Team" HorizontalAlignment="Center" Height="32" TextWrapping="Wrap" VerticalAlignment="Center" Width="69" TextAlignment="Center" Grid.Column="0" Grid.Row="1"/>
-            <ComboBox x:Name="selectteam" HorizontalAlignment="Center" VerticalAlignment="Center" Width="198" Height="32" Grid.Column="1" Grid.Row="1"/>
-            <TextBlock x:Name="textBlock1_Copy" Text ="Distance" HorizontalAlignment="Center" Height="32" TextWrapping="Wrap" VerticalAlignment="Center" Width="69" TextAlignment="Center" Grid.Column="0" Grid.Row="2"/>
-            <ComboBox x:Name="selectdistance" HorizontalAlignment="Center" VerticalAlignment="Center" Width="198" Height="32" Grid.Column="1" Grid.Row="2">
-                <x:String>25km</x:String>
-                <x:String>50km</x:String>
-                <x:String>75km</x:String>
-                <x:String>100km</x:String>
-            </ComboBox>
-
-            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="54" Margin="74,58,0,0" TextWrapping="Wrap" Text="Select Sports Type" VerticalAlignment="Top" Width="232" TextAlignment="Center"/>
-
-        </Grid>
-
-        <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="340">
->>>>>>> 7ab98d657bb720b79eb2c6d8525bd38a27471e10
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160*"/>
                 <ColumnDefinition Width="10*"/>
