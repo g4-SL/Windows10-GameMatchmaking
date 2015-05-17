@@ -27,6 +27,12 @@ namespace GameMatchmaking
             this.InitializeComponent();
         }
 
+        private void validateRequiredFields(object sender, SelectionChangedEventArgs e)
+        {
+            if(txtUsername.Text.Length == 0)
+                System.Diagnostics.Debug.WriteLine("empty username");
+        }
+
         private void gender_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
