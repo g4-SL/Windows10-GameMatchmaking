@@ -27,6 +27,18 @@ namespace GameMatchmaking
     public static class Config
     {
         public static string URI = "http://45.55.251.170:8686/";
+        public static Sport[] sports =
+        {
+            new Sport("Basketball", 5),
+            new Sport("Soccer", 8)
+        };
+    }
+
+    public class Sport
+    {
+        public Sport(string name, int playersPerTeam) { Name = name; PlayersPerTeam = playersPerTeam; }
+        public string Name;
+        public int PlayersPerTeam;
     }
 
     /// <summary>
@@ -91,7 +103,10 @@ namespace GameMatchmaking
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
+                rootFrame.Navigate(typeof(CreateTeamPage), e.Arguments);
+
                 rootFrame.Navigate(typeof(LoginPage), e.Arguments);
+
             }
             // Ensure the current window is active
             Window.Current.Activate();
