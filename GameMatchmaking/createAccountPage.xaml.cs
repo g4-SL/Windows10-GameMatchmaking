@@ -20,23 +20,11 @@ namespace GameMatchmaking
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class createAccountPage : Page
     {
-        public MainPage()
+        public createAccountPage()
         {
             this.InitializeComponent();
-        }
-
-        private void goHomePage(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(HomePage));
-            System.Diagnostics.Debug.WriteLine("going into home page");
-        }
-
-        private void goCreateAccount(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(createAccountPage));
-            System.Diagnostics.Debug.WriteLine("going into create new account page");
         }
     }
 }

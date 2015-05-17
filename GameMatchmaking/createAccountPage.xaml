@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="GameMatchmaking.createAccountPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GameMatchmaking"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="10,0,0,0">
+
+        <TextBlock x:Name="header" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Create Account" VerticalAlignment="Top" Height="33" Width="340"/>
+
+        <Grid HorizontalAlignment="Left" Height="405" Margin="0,43,0,0" VerticalAlignment="Top" Width="412">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock x:Name="txtHeaderUsername" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Username" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+            <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Grid.Row="0" TextWrapping="Wrap" Text="Enter username" VerticalAlignment="Center" Grid.Column="1" Width="240" Margin="0,9,0,9.667"/>
+
+            <TextBlock x:Name="txtHeaderPassword" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+            <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Enter password" VerticalAlignment="Center" Grid.Column="1" Width="240" Margin="0,9.333"/>
+
+            <TextBox x:Name="txtfName" TextWrapping="NoWrap" Text="Enter first name" Height="33" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+            <TextBlock x:Name="txtHeaderfName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"/>
+
+            <TextBlock x:Name="txtHeaderlName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"/>
+            <TextBox x:Name="txtlName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Enter last name" VerticalAlignment="Center" Height="24" Width="241" Grid.Column="1" Grid.Row="3"/>
+
+            <TextBlock x:Name="txtHeaderBday" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Birthday" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
+            <DatePicker HorizontalAlignment="Left" VerticalAlignment="Center" Height="34" Width="241" Grid.Column="1" Grid.Row="4"/>
+
+            <TextBlock x:Name="txtHeaderGender" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"/>
+            <ComboBox x:Name="gender" HorizontalAlignment="Left" Height="37" VerticalAlignment="Center" Width="241" Grid.Column="1" Grid.Row="5">
+                <x:String>Male</x:String>
+                <x:String>Female</x:String>
+            </ComboBox>
+            <TextBlock x:Name="txtHeaderCity" HorizontalAlignment="Left" Grid.Row="6" TextWrapping="Wrap" Text="City" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtCity" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" TextWrapping="Wrap" Text="Enter city" VerticalAlignment="Center" Margin="0,9,0,9.667" Width="240"/>
+
+
+            <TextBlock x:Name="txtHeaderCountry" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" Text="Country" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtCountry" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" Text="Enter country" VerticalAlignment="Center" Margin="0,9.333,-1,9" Width="241"/>
+
+        </Grid>
+
+    </Grid>
+</Page>
