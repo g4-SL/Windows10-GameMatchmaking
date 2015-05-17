@@ -135,6 +135,8 @@
     <Content Include="image\wallpaper3.png" />
     <Content Include="image\wallpaper4.png" />
     <Content Include="image\wallpaper5.png" />
+    <Content Include="image\wallpaper6.png" />
+    <Content Include="image\wallpaper7.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />

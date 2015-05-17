@@ -21,7 +21,6 @@ namespace GameMatchmaking
     public sealed partial class LoginPage : Page
     {
         private String resourceName = "WeLikeSports";
-        private CookieCollection cookies;
 
         public LoginPage()
         {
@@ -31,7 +30,7 @@ namespace GameMatchmaking
 
         private void textBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+            //errorLoginMsg.Text = "";
         }
 
         private void onSignUpClick(object sender, RoutedEventArgs e)
@@ -51,7 +50,7 @@ namespace GameMatchmaking
 
             while (true)
             {
-                if (String.Equals("success", isLogin))
+                if (isLogin.Length != 0 && String.Equals("success", isLogin))
                 {
                     var vault = new Windows.Security.Credentials.PasswordVault();
                     vault.Add(new Windows.Security.Credentials.PasswordCredential(resourceName, txtEmail.Text, txtPassword.Password));
@@ -59,6 +58,12 @@ namespace GameMatchmaking
 
                     Frame rootFrame = Window.Current.Content as Frame;
                     rootFrame.Navigate(typeof(HomePage));
+                    return;
+                }
+                else if (isLogin.Length != 0 && String.Equals("failed", isLogin))
+                {
+                    D.p("went in failure");
+                    //errorLoginMsg.Text = "Wrong email or password";
                     return;
                 }
             }
@@ -72,6 +77,9 @@ namespace GameMatchmaking
             JsonObject userInfo = new JsonObject();
             userInfo["username"] = JsonValue.CreateStringValue(txtEmail.Text);
             userInfo["password"] = JsonValue.CreateStringValue(txtPassword.Password);
+
+            // ultra massive hack
+            User.Name = txtEmail.Text;
 
             D.p(userInfo.ToString());
 
@@ -112,6 +120,8 @@ namespace GameMatchmaking
             catch (Exception e)
             {
                 D.p("Error attempting to login account:");
+                if (e.Message.Contains("Bad Request"))
+                    isLogin = "failed";
                 D.p(e.Message);
                 D.p(e.StackTrace.ToString());
             }

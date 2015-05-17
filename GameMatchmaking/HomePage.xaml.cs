@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,10 +25,48 @@ namespace GameMatchmaking
     /// </summary>
     public sealed partial class HomePage : Page
     {
+        private String resourceName = "WeLikeSports";
+
         public HomePage()
         {
             this.InitializeComponent();
+            PopulateMyTeams();
         }
+
+        async private void PopulateMyTeams()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Config.URI);
+                var loginCredential = GetCredentialFromLocker();
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("api/player/me/");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+
+                        D.p(result);
+
+                        JsonObject jsonResult = JsonObject.Parse(result);
+                        JsonObject jsonData = jsonResult["data"].GetObject();
+                        JsonArray jsonTeams = jsonData["teams"].GetArray();
+
+                        foreach (JsonValue val in jsonTeams)
+                        {
+                            teamList.Items.Add(val.GetString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // statusLabel.Text = "No Internet Connection";
+                }
+            }
+
+        }
+
 
         private void createNewTeam(object sender, RoutedEventArgs e)
         {
@@ -52,5 +93,31 @@ namespace GameMatchmaking
             rootFrame.Navigate(typeof(CreateTeamPage));
         }
 
+        private Windows.Security.Credentials.PasswordCredential GetCredentialFromLocker()
+        {
+            String defaultUserName;
+
+            Windows.Security.Credentials.PasswordCredential credential = null;
+
+            var vault = new Windows.Security.Credentials.PasswordVault();
+            var credentialList = vault.FindAllByResource(resourceName);
+            if (credentialList.Count > 0)
+            {
+                if (credentialList.Count == 1)
+                {
+                    credential = credentialList[0];
+                }
+            }
+
+            return credential;
+        }
+
+        private void OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            //teamList.SelectedItem;
+
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(CreateTeamPage));
+        }
     }
 }
