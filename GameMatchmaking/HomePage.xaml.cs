@@ -38,5 +38,11 @@ namespace GameMatchmaking
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(SelectSports));
         }
+
+    /*    private void invitationRequest(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(InvitationPage));
+        }*/
     }
 }
