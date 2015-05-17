@@ -114,10 +114,16 @@ namespace GameMatchmaking
 
         private void OnItemClick(object sender, ItemClickEventArgs e)
         {
-            //teamList.SelectedItem;
+            String itemStr = "";
+           // D.p(teamList.SelectedItem.ToString());
+            var items = teamList.SelectedItems;
+            foreach(var item in items)
+            {
+                itemStr = item.ToString();
+            }
 
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(CreateTeamPage));
+            rootFrame.Navigate(typeof(TeamStatsPage), itemStr);
         }
     }
 }
