@@ -36,12 +36,6 @@ namespace GameMatchmaking
             rootFrame.Navigate(typeof(createAccountPage));
         }
 
- /*       private void onLoginClick(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(HomePage));
-        }*/
-
         public void onLoginClick(object sender, RoutedEventArgs e)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Config.URI + "api/auth/playerlogin");
@@ -51,12 +45,16 @@ namespace GameMatchmaking
             test = GetUserInfoJson();
             request.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), request);
 
+            while (true)
+            {
+                if (String.Equals("success", isLogin))
+                {
+                    Frame rootFrame = Window.Current.Content as Frame;
+                    rootFrame.Navigate(typeof(HomePage));
+                    return;
+                }
+            }
 
-           // if (isLogin.Equals("success"))
-          //  {
-           //     Frame rootFrame = Window.Current.Content as Frame;
-          //      rootFrame.Navigate(typeof(HomePage));
-          //  }
         }
         private JsonObject test;
         private String isLogin = "";
@@ -99,7 +97,7 @@ namespace GameMatchmaking
                     D.p(resultHttp);
                     JsonObject test = JsonObject.Parse(resultHttp);
                     isLogin = test.GetNamedString("status");
-                    
+                    D.p(isLogin);
                 }
 
             }
