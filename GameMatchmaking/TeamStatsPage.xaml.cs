@@ -26,6 +26,7 @@ namespace GameMatchmaking
         public TeamStatsPage()
         {
             this.InitializeComponent();
+
             txtNumWin.Text = "1";
             txtNumLoss.Text = "1";
             txtRankCity.Text = "1";
