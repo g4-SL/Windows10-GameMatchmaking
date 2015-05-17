@@ -22,6 +22,7 @@ namespace GameMatchmaking
                 sportTypeBox.Items.Add(s.Name);
             }
             sportTypeBox.SelectedItem = "Basketball";
+            teammateListBox.Items.Add(User.Name);
         }
 
         private void PopulateSportType()
@@ -40,19 +41,26 @@ namespace GameMatchmaking
                 byte[] byteArray = Encoding.UTF8.GetBytes(jsonObject.ToString());
                 ByteArrayContent content = new ByteArrayContent(byteArray);
 
-                HttpResponseMessage response = await client.PostAsync("api/player/search/", content);
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    string result = await response.Content.ReadAsStringAsync();
-
-                    D.p(result);
-
-                    JsonObject jsonResult = JsonObject.Parse(result);
-                    JsonArray jsonMatchingPlayers = jsonResult["data"].GetArray();
-                    foreach (JsonValue o in jsonMatchingPlayers)
+                    HttpResponseMessage response = await client.PostAsync("api/player/search/", content);
+                    if (response.IsSuccessStatusCode)
                     {
-                        teammateListBox.Items.Add(o.GetString());
+                        string result = await response.Content.ReadAsStringAsync();
+
+                        D.p(result);
+
+                        JsonObject jsonResult = JsonObject.Parse(result);
+                        JsonArray jsonMatchingPlayers = jsonResult["data"].GetArray();
+                        foreach (JsonValue o in jsonMatchingPlayers)
+                        {
+                            teammateSearchListBox.Items.Add(o.GetString());
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    statusLabel.Text = "No Internet Connection";
                 }
             }
         }
@@ -77,13 +85,31 @@ namespace GameMatchmaking
                 byte[] byteArray = Encoding.UTF8.GetBytes(jsonObject.ToString()); 
                 ByteArrayContent content = new ByteArrayContent(byteArray);
 
-                HttpResponseMessage response = await client.PutAsync("api/team/team/", content);
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    string result = await response.Content.ReadAsStringAsync();
-                    D.p(result);
+                    HttpResponseMessage response = await client.PutAsync("api/team/team/", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+                        D.p(result);
+                    }
+                    else
+                    {
+                        statusLabel.Text = await response.Content.ReadAsStringAsync();
+                    }
                 }
+                catch (Exception ex)
+                {
+                    statusLabel.Text = "No Internet Connection";
+                }
+
             }
+        }
+
+        private void OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            teammateListBox.Items.Add(e.ClickedItem as string);
+            D.p(e.ClickedItem.ToString());
         }
     }
 }
