@@ -9,7 +9,7 @@
 
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="174" Margin="66,226,0,0" VerticalAlignment="Top" Width="230"/>
-        <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
             <Button x:Name="createAccountBtn" Content="Create new account" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="goCreateAccount"/>
         </StackPanel>
     </Grid>
