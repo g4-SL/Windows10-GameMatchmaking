@@ -8,12 +8,17 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid HorizontalAlignment="Left" Height="247" Margin="10,51,0,0" VerticalAlignment="Top" Width="340">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="72,59,73,0" TextWrapping="Wrap" Text="Team Statistics" VerticalAlignment="Top" Height="42" Width="215" FontSize="32"/>
+        <Grid HorizontalAlignment="Left" Height="333" Margin="53,112,0,0" VerticalAlignment="Top" Width="262">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20*"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="10*"/>
@@ -30,7 +35,20 @@
 
             <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rank in country" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"/>
             <TextBlock x:Name="txtRankCountry" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="3"/>
+
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Number of ties" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
+            <TextBlock x:Name="txtNumTies" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="4"/>
+
+            <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sports" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"/>
+            <TextBlock x:Name="txtSportType" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="5"/>
+
+            <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Players" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"/>
+            <TextBlock x:Name="txtPlayers" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="6"/>
+
+            <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Points ratio" VerticalAlignment="Center" Grid.Column="0" Grid.Row="7"/>
+            <TextBlock x:Name="txtPointsRatio" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Row="7"/>
         </Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Team Statistics" VerticalAlignment="Top"/>
+        <Button x:Name="cancelBtn" Content="Back" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="96" Grid.Row="0" Click="onCancelClick" Margin="135,0,129,10"/>
+
     </Grid>
 </Page>
