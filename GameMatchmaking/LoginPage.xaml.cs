@@ -21,7 +21,6 @@ namespace GameMatchmaking
     public sealed partial class LoginPage : Page
     {
         private String resourceName = "WeLikeSports";
-        private CookieCollection cookies;
 
         public LoginPage()
         {
@@ -71,6 +70,9 @@ namespace GameMatchmaking
             JsonObject userInfo = new JsonObject();
             userInfo["username"] = JsonValue.CreateStringValue(txtEmail.Text);
             userInfo["password"] = JsonValue.CreateStringValue(txtPassword.Password);
+
+            // ultra massive hack
+            User.Name = txtEmail.Text;
 
             D.p(userInfo.ToString());
 
