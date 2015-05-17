@@ -7,17 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="340" Margin="10,220,0,0">
-            <Button x:Name="createNew" Content="Create New Team" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="createNewTeamClick"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,372,0,0" VerticalAlignment="Top" Width="340">
-            <Button x:Name="startGame" Content="Start Game" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="chooseSports"/>
-        </StackPanel>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Home" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="32" Margin="90,65,65,0"/>
+        <Grid HorizontalAlignment="Center" Height="Auto" Margin="10,124,10,384" VerticalAlignment="Center" Width="340">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView x:Name="TeamList" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="100" Grid.Row="0"/>
+            <Button x:Name="createNew" Content="Create New Team" HorizontalAlignment="Center" VerticalAlignment="Center" Click="createNewTeamClick" Grid.Row="1"/>
+
+
+        </Grid>        
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="286,10,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.415,0.661" Height="44">
             <Button x:Name="invitation" Content="Pending Invitations" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="7,23" Click="invitationClick" />
-
         </ComboBox>
 
-    </Grid>
+        <Button x:Name="startGame" Content="Start Game" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="chooseSports" Margin="134,0,133,26"/>
+        </Grid>
 </Page>
