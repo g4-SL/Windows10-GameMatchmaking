@@ -30,9 +30,7 @@
             <TextBlock x:Name="teammateSearchLabel" HorizontalAlignment="Left" Margin="20,10,0,0" TextWrapping="Wrap" Text="Search For Teammates" VerticalAlignment="Top" Grid.Row="2" Height="20" Width="178" Grid.ColumnSpan="2"/>
             <ListView x:Name="teammateListBox" HorizontalAlignment="Center" Height="157" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="320" Grid.Row="3" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="currentTeammatesLabel" HorizontalAlignment="Center" Margin="40,10,111,0" TextWrapping="Wrap" Text="Current Teammates" VerticalAlignment="Top" Grid.Row="3" Height="20" Width="133" Grid.Column="1"/>
-
         </Grid>
         <Button x:Name="button" Content="Create" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="96"/>
-
     </Grid>
 </Page>

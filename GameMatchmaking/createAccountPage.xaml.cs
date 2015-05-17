@@ -57,13 +57,13 @@ namespace GameMatchmaking
             userInfo["password"] = JsonValue.CreateStringValue(txtPassword.Text);
 
             string gender = (string)this.gender.SelectedValue == "Male" ? "M" : "F";
-
             userInfo["gender"] = JsonValue.CreateStringValue(gender);
             userInfo["birthday"] = JsonValue.CreateStringValue(birthdayPicker.Date.ToString("yyyy-MM-dd"));
             userInfo["city"] = JsonValue.CreateStringValue(txtCity.Text);
             userInfo["country"] = JsonValue.CreateStringValue(txtCountry.Text);
 
             D.p(userInfo.ToString());
+
             
             return userInfo;
         }
@@ -83,7 +83,7 @@ namespace GameMatchmaking
             request.BeginGetResponse(new AsyncCallback(GetResponceStreamCallback), request);
         }
 
-        void GetResponceStreamCallback(IAsyncResult callbackResult)
+        async void GetResponceStreamCallback(IAsyncResult callbackResult)
         {
             HttpWebRequest request = (HttpWebRequest)callbackResult.AsyncState;
             try
@@ -102,7 +102,6 @@ namespace GameMatchmaking
                 D.p(e.Message);
                 D.p(e.StackTrace.ToString());
             }
-
         }
     }
 }
