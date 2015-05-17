@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="-1,77,0,0" TextWrapping="Wrap" Text="Login Page" VerticalAlignment="Top" Height="42" Width="205" FontSize="32"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,78,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Height="42" Width="82" FontSize="32"/>
 
         <Grid HorizontalAlignment="Center" Height="144" Margin="10,130,10,366" VerticalAlignment="Center" Width="340">
             <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
             <TextBlock x:Name="passwordLabel_Copy" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" SelectionChanged="textBlock_SelectionChanged" Height="20" Width="39" Grid.Row="0" Grid.Column="0"/>
 
         </Grid>
-        
+
         <Grid HorizontalAlignment="Center" Height="53" Margin="0,279,20,308" VerticalAlignment="Center" Width="340">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
