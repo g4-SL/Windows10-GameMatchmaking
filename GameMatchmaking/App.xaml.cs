@@ -109,7 +109,7 @@ namespace GameMatchmaking
                 // configuring the new page by passing required information as a navigation
                 // parameter
 
-       rootFrame.Navigate(typeof(CreateTeamPage), e.Arguments);
+       rootFrame.Navigate(typeof(LoginPage), e.Arguments);
 
             }
             // Ensure the current window is active
