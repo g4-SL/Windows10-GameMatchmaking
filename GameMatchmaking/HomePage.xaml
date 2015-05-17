@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="GameMatchmaking.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GameMatchmaking"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="340" Margin="10,220,0,0">
+            <Button x:Name="createNew" Content="Create New Team" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="createNewTeamClick"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,372,0,0" VerticalAlignment="Top" Width="340">
+            <Button x:Name="startGame" Content="Start Game" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="chooseSports"/>
+        </StackPanel>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="286,10,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.415,0.661" Height="44">
+            <Button x:Name="invitation" Content="Pending Invitations" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="7,23" Click="invitationClick" />
+
+        </ComboBox>
+
+    </Grid>
+</Page>

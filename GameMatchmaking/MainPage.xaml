@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="GameMatchmaking.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GameMatchmaking"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="174" Margin="66,226,0,0" VerticalAlignment="Top" Width="230"/>
+        <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
+            <Button x:Name="createAccountBtn" Content="Create new account" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="goCreateAccount"/>
+        </StackPanel>
+    </Grid>
+</Page>
