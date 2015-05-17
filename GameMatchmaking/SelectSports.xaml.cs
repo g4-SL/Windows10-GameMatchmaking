@@ -25,7 +25,7 @@ namespace GameMatchmaking
 
 
 
-        private void startGameClick(object sender, RoutedEventArgs e)
+        private void onStartGameClick(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(ResultPage));
