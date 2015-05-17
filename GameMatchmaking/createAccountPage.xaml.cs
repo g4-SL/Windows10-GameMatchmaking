@@ -52,6 +52,10 @@ namespace GameMatchmaking
         {
             JsonObject userInfo = new JsonObject();
             userInfo["username"] = JsonValue.CreateStringValue(txtUsername.Text);
+
+            // ultra massive hacky poop
+            User.Name = txtUsername.Text;
+
             userInfo["first"] = JsonValue.CreateStringValue(txtfName.Text);
             userInfo["last"] = JsonValue.CreateStringValue(txtlName.Text);
             userInfo["password"] = JsonValue.CreateStringValue(txtPassword.Text);

@@ -28,11 +28,6 @@ namespace GameMatchmaking
                 teammateListBox.Items.Add(User.Name);
         }
 
-        private void PopulateSportType()
-        {
-            // Send http get request for sport types available
-        }
-
         async private void onAddTeammateClick(object sender, RoutedEventArgs e)
         {
             using (HttpClient client = new HttpClient())

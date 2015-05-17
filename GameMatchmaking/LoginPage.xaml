@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" NavigationCacheMode="Enabled">
 
+<<<<<<< HEAD
     <Grid RequestedTheme="Light">
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///image/wallpaper3.png" Stretch="Uniform"/>
@@ -20,6 +21,10 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="20,43,135,0" TextWrapping="Wrap" Text="Log-In" VerticalAlignment="Top" Height="42" Width="205" FontSize="32" FontFamily="Segoe UI Black" FontWeight="Bold" SelectionChanged="textBlock_SelectionChanged_1" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" Grid.Row="1"/>
+=======
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,78,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Height="42" Width="82" FontSize="32"/>
+>>>>>>> 9f28a1584bb3b6fece586b5b7a3a17e06c90309d
 
         <Grid HorizontalAlignment="Center" Height="144" Margin="1,90,19,404" VerticalAlignment="Center" Width="340" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -32,6 +37,7 @@
             </Grid.RowDefinitions>
 
             <PasswordBox x:Name="txtPassword" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="175" Height="32" IsPasswordRevealButtonEnabled="True" Grid.Column="1"/>
+<<<<<<< HEAD
             <TextBlock x:Name="passwordLabel" HorizontalAlignment="Right" Grid.Row="1" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" SelectionChanged="textBlock_SelectionChanged" Height="20" Width="62" Grid.Column="0" FontFamily="Segoe UI Black" FontWeight="Bold" Margin="0,20,0.333,20" />
             <TextBox x:Name="txtEmail" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="175" Height="32" Grid.Row="0" Grid.Column="1"/>
             <TextBlock x:Name="passwordLabel_Copy" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" SelectionChanged="textBlock_SelectionChanged" Height="20" Width="39" Grid.Row="0" Grid.Column="0" Margin="0,32,23.333,20" FontFamily="Segoe UI Black" FontWeight="Bold"/>
@@ -39,6 +45,17 @@
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="53" Margin="20,234,0,351" VerticalAlignment="Center" Width="340" RenderTransformOrigin="0.546,-1.009" Grid.Row="1">
+=======
+            <TextBlock x:Name="passwordLabel" HorizontalAlignment="Right" Grid.Row="1" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" SelectionChanged="textBlock_SelectionChanged" Height="20" Width="62" Grid.Column="0" />
+            <TextBox x:Name="txtEmail" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="175" Height="32" Grid.Row="0" Grid.Column="1" SelectionChanged="textBlock_SelectionChanged"/>
+            <TextBlock x:Name="passwordLabel_Copy" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" Height="20" Width="39" Grid.Row="0" Grid.Column="0"/>
+
+        </Grid>
+        
+        <TextBlock x:Name="errorLoginMsg" Foreground="Red" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="Auto" Margin="181,279,179,341"/>
+
+        <Grid HorizontalAlignment="Center" Height="53" Margin="0,343,20,244" VerticalAlignment="Center" Width="340">
+>>>>>>> 9f28a1584bb3b6fece586b5b7a3a17e06c90309d
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="10*"/>

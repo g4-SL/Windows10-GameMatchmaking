@@ -7,7 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="97,19,94,18" TextWrapping="Wrap" Text="Invitations" VerticalAlignment="Center" Width="169" FontSize="32"/>
+        <TextBlock x:Name="statusLabel" HorizontalAlignment="Center" Margin="0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="171"/>
+        <ListView x:Name="invitationsList" HorizontalAlignment="Center" Height="480" Margin="0" Grid.Row="2" VerticalAlignment="Center" Width="340" Background="#FFE4E4E4"/>
 
     </Grid>
 </Page>

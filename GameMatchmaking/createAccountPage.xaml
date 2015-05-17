@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+<<<<<<< HEAD
     <Grid Margin="10,0,0,0" HorizontalAlignment="Center">
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///image/wallpaper4.png" Stretch="Uniform"/>
@@ -21,6 +22,12 @@
         <TextBlock x:Name="header" HorizontalAlignment="Left" Margin="20,45,0,0" TextWrapping="Wrap" Text="Create Account" VerticalAlignment="Top" Height="33" Width="278" FontWeight="Bold" FontFamily="Segoe UI Black" FontSize="32" Grid.ColumnSpan="3" Foreground="{ThemeResource AppBarItemPressedForegroundThemeBrush}"/>
 
         <Grid HorizontalAlignment="Left" Height="438" Margin="0,83,0,0" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="3">
+
+    <Grid>
+
+        <TextBlock x:Name="header" HorizontalAlignment="Center" Margin="80,65,63,0" TextWrapping="Wrap" Text="Create Account" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="32"/>
+
+      
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="20*"/>
@@ -43,8 +50,10 @@
             <TextBlock x:Name="txtHeaderPassword" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Foreground="{ThemeResource AppBarItemPressedForegroundThemeBrush}" Margin="10,13,0,11.333" FontWeight="Bold"/>
             <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="217" Margin="113,11.333,0,11.333" Grid.ColumnSpan="2"/>
 
+
             <TextBox x:Name="txtfName" TextWrapping="NoWrap"  Height="33" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Margin="113,10.667,10,11"/>
             <TextBlock x:Name="txtHeaderfName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Margin="10,12,0,11" Foreground="{ThemeResource AppBarItemPressedForegroundThemeBrush}" FontWeight="Bold"/>
+
 
             <TextBlock x:Name="txtHeaderlName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" Margin="11,13,0,11.667" Foreground="{ThemeResource AppBarItemPressedForegroundThemeBrush}" FontWeight="Bold"/>
             <TextBox x:Name="txtlName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="24" Width="217" Grid.Row="3" Grid.ColumnSpan="2" Margin="113,11,0,11.667"/>
@@ -65,6 +74,7 @@
             <TextBox x:Name="txtCountry" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Margin="113,12,0,11" Width="217" Grid.ColumnSpan="2"/>
 
         </Grid>
+
         <Button x:Name="createAccountButton" Content="Create Account" HorizontalAlignment="Center" Margin="111,546,117,62" VerticalAlignment="Center" Click="onCreateButtonClick" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" Height="32" Width="122" Grid.Column="2">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -73,5 +83,15 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+
+
+        <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+           
+        </Grid>
+
     </Grid>
 </Page>
