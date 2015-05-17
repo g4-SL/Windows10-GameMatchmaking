@@ -20,8 +20,15 @@
             <x:String>100km</x:String>
         </ComboBox>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="54" Margin="74,58,0,0" TextWrapping="Wrap" Text="Select Sports Type" VerticalAlignment="Top" Width="232" TextAlignment="Center"/>
-        <Button x:Name="gamestart" Content="Start Game" HorizontalAlignment="Left" Height="57" Margin="79,535,0,0" VerticalAlignment="Top" Width="193"/>
-
+        
+        <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="340">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="gamestartBtn" Content="Start Game" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" Grid.Row="0" Grid.Column="0" Margin="0,10,10,11" Click="onStartGameClick"/>
+            <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Center" Width="96" Grid.Row="0" Grid.Column="1" Margin="10,10,0,11" Click="onCancelClick"/>
+        </Grid>
 
     </Grid>
 </Page>

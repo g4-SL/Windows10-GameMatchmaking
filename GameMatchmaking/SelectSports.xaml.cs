@@ -22,5 +22,18 @@ namespace GameMatchmaking
         {
             this.InitializeComponent();
         }
+
+        private void onStartGameClick(object sender, RoutedEventArgs e)
+        {
+            //TODO create team
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
+        }
+
+        private void onCancelClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
+        }
     }
 }

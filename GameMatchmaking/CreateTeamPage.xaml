@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="-1,77,0,0" TextWrapping="Wrap" Text="Create A Team" VerticalAlignment="Top" Height="42" Width="205" FontSize="32"/>
 
-        <Grid HorizontalAlignment="Center" Height="400" Margin="0,20,0,0" VerticalAlignment="Center" Width="340">
+        <Grid HorizontalAlignment="Center" Height="447" Margin="10,130,10,63" VerticalAlignment="Center" Width="340">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="14*"/>
                 <ColumnDefinition Width="71*"/>
@@ -32,7 +32,15 @@
             <TextBlock x:Name="currentTeammatesLabel" HorizontalAlignment="Center" Margin="40,10,111,0" TextWrapping="Wrap" Text="Current Teammates" VerticalAlignment="Top" Grid.Row="3" Height="20" Width="133" Grid.Column="1"/>
 
         </Grid>
-        <Button x:Name="button" Content="Create" HorizontalAlignment="Center" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="96"/>
+
+        <Grid HorizontalAlignment="Center" Height="53" Margin="10,577,10,10" VerticalAlignment="Center" Width="340">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" Grid.Row="0" Grid.Column="0" Margin="0,10,10,11" Click="onCreateClick"/>
+            <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Center" Width="96" Grid.Row="0" Grid.Column="1" Margin="10,10,0,11" Click="onCancelClick"/>
+        </Grid>
 
     </Grid>
 </Page>

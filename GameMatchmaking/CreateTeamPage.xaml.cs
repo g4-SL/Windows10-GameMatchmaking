@@ -10,6 +10,8 @@ namespace GameMatchmaking
 {
     public sealed partial class CreateTeamPage : Page
     {
+        private String resourceName = "WeLikeSports";
+
         public CreateTeamPage()
         {
             this.InitializeComponent();
@@ -28,8 +30,15 @@ namespace GameMatchmaking
 
         private void onCreateClick(object sender, RoutedEventArgs e)
         {
-            // Send request with info 
+            //TODO create team
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
+        }
 
+        private void onCancelClick(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(HomePage));
         }
     }
 }

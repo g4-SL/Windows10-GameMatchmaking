@@ -29,8 +29,9 @@ namespace GameMatchmaking
 
         private void createNewTeam(object sender, RoutedEventArgs e)
         {
-            // TODO create new team;
             System.Diagnostics.Debug.WriteLine("create new team");
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(CreateTeamPage));
         }
 
         private void chooseSports(object sender, RoutedEventArgs e)
