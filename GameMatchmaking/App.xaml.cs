@@ -81,7 +81,11 @@ namespace GameMatchmaking
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
+<<<<<<< HEAD
+                rootFrame.Navigate(typeof(HomePage), e.Arguments);
+=======
                 rootFrame.Navigate(typeof(TeamStatsPage), e.Arguments);
+>>>>>>> 667986fc1b8d0c698d7162551389ad41cf383290
             }
             // Ensure the current window is active
             Window.Current.Activate();

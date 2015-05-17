@@ -12,7 +12,7 @@
             <Button x:Name="createNew" Content="Create New Team" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="createNewTeam"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,530,0,0" VerticalAlignment="Top" Width="340">
-            <Button x:Name="startGame" Content="Start Game" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button x:Name="startGame" Content="Start Game" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="chooseSports"/>
         </StackPanel>
 
     </Grid>

@@ -13,23 +13,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace GameMatchmaking
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class createAccountPage : Page
+    public sealed partial class SelectSports : Page
     {
-        public createAccountPage()
+        public SelectSports()
         {
             this.InitializeComponent();
-        }
-
-        private void gender_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

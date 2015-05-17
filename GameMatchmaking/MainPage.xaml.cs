@@ -35,7 +35,7 @@ namespace GameMatchmaking
 
         private void goCreateAccount(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(createAccountPage));
+            this.Frame.Navigate(typeof(CreateTeamPage));
             System.Diagnostics.Debug.WriteLine("going into create new account page");
         }
     }
