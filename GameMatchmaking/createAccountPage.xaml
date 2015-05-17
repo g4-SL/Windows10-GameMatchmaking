@@ -56,11 +56,7 @@
             <TextBox x:Name="txtCountry" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,9.333,-1,9" Width="241"/>
 
         </Grid>
-<<<<<<< HEAD
         <Button x:Name="account_create" Content="Create An Account " HorizontalAlignment="Left" Height="53" Margin="110,503,0,0" VerticalAlignment="Top" Width="143"/>
 
-=======
-        
->>>>>>> 667986fc1b8d0c698d7162551389ad41cf383290
     </Grid>
 </Page>
