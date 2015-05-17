@@ -54,7 +54,6 @@ namespace GameMatchmaking
                     var vault = new Windows.Security.Credentials.PasswordVault();
                     vault.Add(new Windows.Security.Credentials.PasswordCredential(resourceName, txtEmail.Text, txtPassword.Password));
                     var loginCredential = GetCredentialFromLocker();
-                    D.p(loginCredential.UserName);
 
                     Frame rootFrame = Window.Current.Content as Frame;
                     rootFrame.Navigate(typeof(HomePage));
