@@ -17,30 +17,8 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
-namespace GameMatchmaking
+namespace App1
 {
-    public static class D 
-    {
-        public static void p(string s) { System.Diagnostics.Debug.WriteLine(s); }
-    }
-
-    public static class Config
-    {
-        public static string URI = "http://45.55.251.170:8686/";
-        public static Sport[] sports =
-        {
-            new Sport("Basketball", 5),
-            new Sport("Soccer", 8)
-        };
-    }
-
-    public class Sport
-    {
-        public Sport(string name, int playersPerTeam) { Name = name; PlayersPerTeam = playersPerTeam; }
-        public string Name;
-        public int PlayersPerTeam;
-    }
-
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -58,7 +36,6 @@ namespace GameMatchmaking
         public App()
         {
             TelemetryClient = new Microsoft.ApplicationInsights.TelemetryClient();
-
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
@@ -103,10 +80,7 @@ namespace GameMatchmaking
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(CreateTeamPage), e.Arguments);
-
-                rootFrame.Navigate(typeof(LoginPage), e.Arguments);
-
+                rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();

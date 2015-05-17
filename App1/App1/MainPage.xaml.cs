@@ -15,34 +15,16 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace GameMatchmaking
+namespace App1
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class MainPage : Page
     {
-        public HomePage()
+        public MainPage()
         {
             this.InitializeComponent();
         }
-
-        private void createNewTeam(object sender, RoutedEventArgs e)
-        {
-            // TODO create new team;
-            System.Diagnostics.Debug.WriteLine("create new team");
-        }
-
-        private void chooseSports(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(SelectSports));
-        }
-
-    /*    private void invitationRequest(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(InvitationPage));
-        }*/
     }
 }
